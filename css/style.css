@@ -1,0 +1,88 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 18px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+    font-family: "Open Sans", sans-serif;
+    background: linear-gradient(to bottom right, #FF204E,#5D0E41, #5D0E41);
+}
+
+.counter{
+    width: 400px;
+    height: 400px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    animation-name: popup;
+    animation-duration: 0.8s;
+}
+
+.counter__top{
+    height: 70%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.counter__heading{
+    font-size: 800%;
+    font-weight: 600;
+}
+
+.counter__bottom{
+    height:30%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.counter__button:focus{
+    outline: 2px solid black
+}
+
+.counter__button{
+    width:150px;
+    height:50px;
+    font-size: 180%;
+    border:none;
+    color:white;
+    border-radius: 10px;
+}
+
+.counter__button:hover{
+    cursor:pointer;
+}
+
+.counter__button--red{
+    background: #B43F3F;
+}
+
+.counter__button--red:hover{
+    background: #682c2c;
+}
+
+.counter__button--green{
+    background: #B5C18E;
+}
+.counter__button--green:hover{
+    background: hsl(74, 29%, 56%);
+}
+
+@keyframes popup {
+    from{
+        opacity:0;
+        transform: translateY(10px);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
