@@ -1,55 +1,23 @@
-// Counter
-var count = 0;
-var counter = document.getElementById("counter");
-counter.innerText = count;
+var mobileNav = document.getElementById("mobile-nav");
+var bars = document.getElementById("button-bars")
+var body = document.getElementsByTagName("body")[0]
+var rememberY = 0;
 
-var redButton = document.getElementById("button--red")
-redButton.onclick = function () {
-    if (count > -10)
-        count -= 1;
-    else {
-        count = 0;
-    }
-    counter.innerText = count;
+mobileNav.onmousemove = function(event){
+    mobileNav.style.backgroundPosition = event.clientX/30 + "px " +event.clientY/30 + "px ";
 }
 
-
-var greenButton = document.getElementById("button--green");
-greenButton.onclick = function () {
-    if (count >= 10)
-        count = 0;
-    else {
-        count += 1;
-        counter.innerText = count;
-    }
+mobileNav.onclick = function(){
+    mobileNav.style.display = "none";
+    body.style.height = "auto";
+    body.style.overflow = "scroll";
+    window.scrollTo(0,rememberY - 5);
 }
 
-// Stopwatch
-var minutes = 0;
-var seconds = 0;
-var everySecond;
-var watch = document.getElementById("stopwatch");
-watch.innerText = minutes + ":0" + seconds;
-
-var start = document.getElementById("button--start");
-start.onclick = function () {
-    // elke seconde uitvoeren
-        everySecond = setInterval(function () {
-        seconds += 1;
-        if(seconds > 60){
-            seconds = 0
-            minutes += 1;
-        }
-        if (seconds > 9) {
-            watch.innerText = minutes + ":" + seconds;
-        } else {
-            watch.innerText = minutes + ":0" + seconds;
-        }
-    
-    }, 1000)
-}
-
-var stop = document.getElementById("button--stop");
-stop.onclick = function () {
-    clearInterval(everySecond);
+bars.onclick = function(event){
+    rememberY = event.pageY;
+    mobileNav.style.display = "flex";
+    body.style.height = "100vh";
+    body.style.overflow = "hidden";
+    window.scrollTo(0,0);
 }
